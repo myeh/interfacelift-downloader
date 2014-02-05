@@ -2,10 +2,10 @@
 import os, urllib2, re, sys, commands, random, time
 
 # -- Changable Variables
-url             = 'http://interfacelift.com/wallpaper/downloads/date/2_screens/2880x900/' #Browse to the page that has all the wallpaper you want and paste here
-directory       = '/home/user/wallpaper/2880x900' #Path to download to
+url             = 'http://interfacelift.com/wallpaper/downloads/date/widescreen/1920x1080/' #Browse to the page that has all the wallpaper you want and paste here
+directory       = 'wallpapers' #Path to download to
 stoponfind      = '1' # Set to 0 to download all files even if the file exists and 1 to stop when it finds where it left off
-wgetpath        = '/usr/bin/wget' #Default on linux systems /usr/local/bin/wget on freebsd
+wgetpath        = '/usr/local/bin/wget' #Default on linux systems /usr/local/bin/wget on freebsd
 
 # -- Should not need to edit below here unless something stops working --
 useragent       = 'Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US; rv:1.9.2.3) Gecko/20100401 Firefox/3.6.3 (.NET CLR 3.5.30729)' #Fake useragent since wget is blocked
@@ -50,7 +50,7 @@ while count < 9999999:
                 print 'Sleeping for :' + str(randomnum)
                 quit()
         count += 1
-        randomnum  = random.randint(10,30)
-        print 'Sleeping for :' + str(randomnum)
-        time.sleep(randomnum)
-
+        if wallpapercount > 0:
+            randomnum  = random.randint(5, 15)
+            print 'Sleeping for :' + str(randomnum)
+            time.sleep(randomnum)
