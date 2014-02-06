@@ -8,11 +8,11 @@
 
 This is a script to mass download wallpapers from [interfacelift.com][interfacelift]
 
-## My fork
+### My fork
 
 Refactored the code using modern tools ([requests][requests], [BeautifulSoup][bs]), but kept the same logic as the [dmacpherson's original script][dmacpherson].
 
-## Instructions
+### Instructions
 
 - `git clone`
 - `pip install --requirement requirements.txt`
