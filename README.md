@@ -1,8 +1,4 @@
-# InterfaceLift
-
-![Sample Image][image]
-
-## Downloader
+# InterfaceLift Downloader
 
 This is a script to mass download wallpapers from [interfacelift.com][interfacelift]
 
