@@ -4,7 +4,7 @@ This is a script to mass download wallpapers from [interfacelift.com][interfacel
 
 ### My fork
 
-Refactored the code using modern tools ([requests][requests], [BeautifulSoup][bs]), but kept the same logic as the [dmacpherson's original script][dmacpherson].
+Refactored the code using modern tools ([requests][requests], [BeautifulSoup][bs]), but kept the same logic as the [dmacpherson's original script][dmacpherson]. The script now downloads wallpapers in a single session (instead of multiple ones), downloading wallpapers one after the other, without overloading interfacelift's website.
 
 ### Instructions
 
