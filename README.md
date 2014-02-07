@@ -1,5 +1,3 @@
-# WORK IN PROGRESS
-
 # InterfaceLift
 
 ![Sample Image][image]
