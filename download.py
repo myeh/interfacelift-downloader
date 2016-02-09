@@ -3,6 +3,7 @@ import os
 import os.path
 import requests
 import re
+import ctypes
 
 from BeautifulSoup import BeautifulSoup
 from itertools import count
@@ -11,11 +12,13 @@ from time import sleep
 
 
 SAVE_DIR          = 'wallpapers'
-RESOLUTION        = '1920x1080'
-RESOLUTION_PREFIX = 'widescreen'  # URL Prefix for filtering by resolution.
-STOP_IF_EXISTS    = True  # Set to False to download all files even if the file exists and True to stop when it finds where it left off.
+RESOLUTION        = '3840x2160'
+RESOLUTION_PREFIX = 'wide_16:9'  # URL Prefix for filtering by resolution.
+STOP_IF_EXISTS    = False  # Set to False to download all files even if the file exists and True to stop when it finds where it left off.
 START_PAGE        = 1  # Page number to start downloading from. Keep this on '1' if you want to download everything at the current resolution.
 
+
+SPI_SETDESKWALLPAPER = 20
 
 def get_backgrounds():
     if not os.path.exists(SAVE_DIR):
@@ -37,7 +40,7 @@ def get_backgrounds():
         c = 0
         for page in count(START_PAGE):
             downloaded, carry_on = get_images_from_page(
-                'http://interfacelift.com/wallpaper/downloads/date/%s/%s/index%s.html' % (
+                'http://interfacelift.com/wallpaper/downloads/random/%s/%s/index%s.html' % (
                     RESOLUTION_PREFIX, RESOLUTION, page),
                  session, pattern, path)
             c += downloaded
@@ -74,6 +77,11 @@ def get_images_from_page(url, session, pattern, path):
                     f.write(response.content)
                 c += 1
                 print wallpaper
+
+
+            cs = ctypes.c_buffer(save_to)
+            ctypes.windll.user32.SystemParametersInfoA(SPI_SETDESKWALLPAPER, 0, cs, 0)
+            return 1, False
 
             # Random break between wallpapers.
             sleep(randint(2, 5))

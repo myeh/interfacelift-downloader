@@ -1,17 +1,18 @@
 # InterfaceLift Downloader
 
-This is a script to mass download wallpapers from [interfacelift.com][interfacelift]
+This is a script to rotate my windows desktop background randomly selected from [interfacelift.com][interfacelift]
+I use a cronjob to run this daily and enjoy a new desktop each day
 
 ### My fork
 
-Refactored the code using modern tools ([requests][requests], [BeautifulSoup][bs]), but kept the same logic as the [dmacpherson's original script][dmacpherson]. The script now downloads wallpapers in a single session (instead of multiple ones), downloading wallpapers one after the other, without overloading interfacelift's website. My fork also addresses a bug where a wallpaper would be downloaded partially, causing a "pixelated" or non-viewable image.
+Refactored using [oryband's forked script][oryband]. The script now downloads a random wallpaper and sets it to the desktop.
 
 ### Instructions
 
 - `git clone`
 - `pip install --requirement requirements.txt`
 - `python download.py`
-- PROFIT. Wallpapers will be downloaded to `wallpapers/` directory.
+- Enjoy. Wallpapers will be cached to `wallpapers/` directory.
 
 [image]: http://interfacelift.com/wallpaper/7yz4ma1/03489_fairfieldchurch_1280x720.jpg
 [dmacpherson]: https://github.com/dmacpherson/py-interfacelift-downloader/
