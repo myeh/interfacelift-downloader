@@ -14,7 +14,6 @@ from time import sleep
 SAVE_DIR          = 'wallpapers'
 RESOLUTION        = '3840x2160'
 RESOLUTION_PREFIX = 'wide_16:9'  # URL Prefix for filtering by resolution.
-STOP_IF_EXISTS    = False  # Set to False to download all files even if the file exists and True to stop when it finds where it left off.
 START_PAGE        = 1  # Page number to start downloading from. Keep this on '1' if you want to download everything at the current resolution.
 
 
@@ -68,9 +67,8 @@ def get_images_from_page(url, session, pattern, path):
             save_to = '%s/%s' % (path, wallpaper)
             exists = os.path.isfile(save_to)
 
-            if exists and STOP_IF_EXISTS:
+            if exists:
                 print "%s already downloaded, stopping." % wallpaper
-                return c, False
             elif not exists:
                 response = session.get(href)
                 with open(save_to, 'wb') as f:
